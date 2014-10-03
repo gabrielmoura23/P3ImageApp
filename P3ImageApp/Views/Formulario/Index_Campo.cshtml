@@ -21,6 +21,9 @@
         <thead>
             <tr>
                 <th>
+                    Descrição Categoria
+                </th>
+                <th>
                     Descrição SubCategoria
                 </th>
                 <th>
@@ -41,6 +44,8 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Tab_Subcategoria.Tab_Categoria.descricao)
+                    </td>
                     <td>@Html.DisplayFor(modelItem => item.Tab_Subcategoria.descricao)
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.ordem)

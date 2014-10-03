@@ -289,7 +289,8 @@
     <Content Include="Views\Formulario\Index.cshtml" />
     <Content Include="Views\Formulario\Index_SubCat.cshtml" />
     <Content Include="Views\Formulario\Index_Campo.cshtml" />
-    <Content Include="Views\Formulario\Teste.cshtml" />
+    <Content Include="Views\Shared\PaginaNaoEncontrada.cshtml" />
+    <Content Include="Views\Formulario\Dinamico.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

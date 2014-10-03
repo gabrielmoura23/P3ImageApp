@@ -44,16 +44,33 @@ namespace P3ImageApp.Controllers
             return View(tab.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Teste(String slugcategoria, String slugsubcategoria)
+        public ActionResult Categoria(String slugcategoria)
+        {
+            var tab = db.Tab_Subcategoria.Where(s => s.Tab_Categoria.slug == slugcategoria)
+                                                        .OrderBy(s => s.Tab_Categoria.idcategoria)
+                                                        .OrderBy(s => s.idsubcategoria).AsQueryable();
+            
+            int? page = 1;
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View("Index_SubCat", tab.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult SubCategoria(String slugcategoria, String slugsubcategoria)
         {
             var tab = db.Tab_Campo.Where(s => s.Tab_Subcategoria.Tab_Categoria.slug == slugcategoria
                                                         && s.Tab_Subcategoria.slug == slugsubcategoria)
-                                                        .OrderBy(s => s.ordem).AsQueryable();
+                                                        .OrderBy(s => s.ordem)
+                                                        .OrderBy(s => s.Tab_Subcategoria.Tab_Categoria.idcategoria)
+                                                        .OrderBy(s => s.Tab_Subcategoria.idsubcategoria).AsQueryable();
+
+            if (tab != null)
+                ViewBag.IdCategoria = tab.Select(s => s.Tab_Subcategoria.Tab_Categoria.idcategoria).FirstOrDefault();
 
             int? page = 1;
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            return View(tab.ToPagedList(pageNumber, pageSize));
+            return View("Index_Campo", tab.ToPagedList(pageNumber, pageSize));
         }
     }
 }

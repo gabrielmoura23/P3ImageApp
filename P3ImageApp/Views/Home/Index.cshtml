@@ -1,9 +1,25 @@
 ﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+    
+    if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+    }
 }
 <div class="jumbotron">
     <p style="text-align: justify;">
         Página inicial externa.
+        <br /><br />
+        Utilizar para teste:
+        <br />
+        <a href="~/teste/nautica-acessorios/som/">/teste/nautica-acessorios/som/</a>
+        <br />
+        <a href="~/teste/nautica-acessorios/">/teste/nautica-acessorios/</a>
+        <br />
+        etc...
     </p>
 </div>
