@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false)
+    <div class="jumbotron">
+        <div class="form-signin">
+            <form role="form" action="">
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-danger" role="alert" style="width: 360px;">@TempData["Message"]</div>
+            }
+            <div class="form-group">
+                <label class="control-label" for="user">
+                    Usuário</label>
+                <div class="controls">
+                    @Html.TextBox("username", null, new { @class = "form-control", style = "width: 350px", placeholder = "Usuário" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password">
+                    Senha</label>
+                <div class="controls">
+                    @Html.Password("pwd", null, new { @class = "form-control", style = "width: 350px", placeholder = "Usuário" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="controls">
+                    <div class="buttons">
+                        <button type="submit" value="LogOn" class="btn btn-success">
+                            Entrar</button>
+                        <button type="reset" class="btn">
+                            Limpar</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+}

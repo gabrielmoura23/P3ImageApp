@@ -1,0 +1,42 @@
+﻿<!-- Static navbar -->
+<div class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Inicial", "Index", "Interno")</li>
+                <li>@Html.ActionLink("Categorias", "Index", "Categoria")</li>
+                <li>@Html.ActionLink("SubCategorias", "Index", "SubCategoria")</li>
+                <li>@Html.ActionLink("Campos", "Index", "Campo")</li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Relatórios
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Relatório 1</a></li>
+                        <li><a href="#">Relatório 2</a></li>
+                        <li class="divider"></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                    data-close-others="true">
+                    <img alt="" height="29px" width="29px" src="~/Content/imagens/gabriel_minifoto.jpg"
+                        class="imgMenu">&nbsp;
+                    @{ if (HttpContext.Current.Session["nomeUsuarioLogado"] != null)
+                       {
+                        @HttpContext.Current.Session["nomeUsuarioLogado"].ToString().ToUpper().Substring(0, HttpContext.Current.Session["nomeUsuarioLogado"].ToString().IndexOf(' '));
+                       }
+                    }
+                    <i class="caret"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#"><i class="icon-user"></i>Teste 1</a> </li>
+                        <li><a href="#"><i class="icon-tasks"></i>Teste 2</a> </li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Sair", "LogOff", "Autenticacao")</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</div>

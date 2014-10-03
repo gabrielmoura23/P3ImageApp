@@ -1,0 +1,36 @@
+﻿@model P3ImageApp.Models.Tab_Categoria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tab_Categoria</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idcategoria)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idcategoria)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.slug)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.slug)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

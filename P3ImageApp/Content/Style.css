@@ -1,0 +1,21 @@
+﻿body { }
+
+.topo { margin-top: 5px; padding: 5px; height: 15px; height: 60px; }
+
+.topo .titulo { float: left; }
+
+.topo .logo { float: right; }
+
+.jumbotron { background-color: transparent; }
+
+.jumbotron { padding-top: 3px; padding-bottom: 48px; }
+
+.jumbotron p { margin-bottom: 15px; font-size: 12px; font-weight: 200; }
+
+.imgMenu { margin-bottom: -15px; margin-top: -15px; }
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}

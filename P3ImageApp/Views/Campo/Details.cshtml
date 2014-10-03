@@ -1,0 +1,57 @@
+﻿@model P3ImageApp.Models.Tab_Campo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tab_Campo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idcampo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idcampo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tab_Subcategoria.descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tab_Subcategoria.descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ordem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ordem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lista)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lista)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

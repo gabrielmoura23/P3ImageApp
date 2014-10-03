@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Campo>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+}
+<div class="jumbotron">
+    <div class="row">
+        <h3>
+            Campos - Listagem</h3>
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Descrição SubCategoria
+                </th>
+                <th>
+                    Ordem Campo
+                </th>
+                <th>
+                    Descrição Campo
+                </th>
+                <th>
+                    Tipo Campo
+                </th>
+                <th>
+                    Lista Campo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Tab_Subcategoria.descricao)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.ordem)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.tipo)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.lista)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row" style="margin-left: 1px;">
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        de @Model.PageCount&nbsp; @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page }))
+    </div>
+    <p>
+        @using (Html.BeginForm())
+        {
+            @Html.ActionLink("Voltar", "Index_SubCat", new { id = ViewBag.IdCategoria }, new { @class = "btn btn-default" })
+        }
+    </p>
+</div>

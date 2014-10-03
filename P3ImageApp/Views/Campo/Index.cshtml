@@ -1,0 +1,54 @@
+﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Campo>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Campo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions opcoes = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnBegin = "$('#myModal').modal('show');",
+        OnComplete = "$('#myModal').modal('hide');",
+        OnFailure = "alert('Falha')",
+        UpdateTargetId = "gridInterno",
+        InsertionMode = InsertionMode.Replace
+    }; 
+}
+<div class="jumbotron">
+    <div class="row">
+        <h3>
+            Campos - Listagem</h3>
+    </div>
+    <div class="row" style="float: right;">
+        <a href="/Campo/Create" class="btn btn-small btn-default btn-sm">Novo Cadastro <span
+            class="glyphicon glyphicon-plus" /></a>
+    </div>
+    <br />
+    <br />
+    @using (Ajax.BeginForm("Busca", "Campo", opcoes))
+    {
+        <div class="row">
+            Pesquisar pela descrição: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Pesquisar" class="btn btn-default btn-xs" />
+            @Ajax.ActionLink(
+                "Limpar",
+                "Busca",
+                "Categoria",
+                new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        OnBegin = "$('#myModal').modal('show');",
+                        OnComplete = "$('#SearchString').val(''); $('#myModal').modal('hide');",
+                        OnFailure = "alert('Falha')",
+                        UpdateTargetId = "gridInterno",
+                        InsertionMode = InsertionMode.Replace
+                    },
+                new { @class = "btn btn-default btn-xs" }
+            )
+        </div>
+    }
+    <br />
+    <div id="gridInterno">
+        @{ Html.RenderPartial("IndexGrid", Model); }
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Campo>
+@using PagedList.Mvc;
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Código")
+                </th>
+                <th>
+                    @Html.DisplayName("SubCategoria")
+                </th>
+                <th>
+                    @Html.DisplayName("Ordem")
+                </th>
+                <th>
+                    @Ajax.ActionLink("Descrição", "Busca", new { sortOrder = "Descrição", currentFilter = ViewBag.CurrentFilter, page = Model.PageNumber }, new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        OnBegin = "$('#myModal').modal('show');",
+                        OnComplete = "$('#myModal').modal('hide');",
+                        OnFailure = "alert('Falha')",
+                        UpdateTargetId = "gridInterno",
+                        InsertionMode = InsertionMode.Replace
+                    })
+                </th>
+                <th>
+                    @Ajax.ActionLink("Tipo", "Busca", new { sortOrder = "Tipo", currentFilter = ViewBag.CurrentFilter, page = Model.PageNumber }, new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        OnBegin = "$('#myModal').modal('show');",
+                        OnComplete = "$('#myModal').modal('hide');",
+                        OnFailure = "alert('Falha')",
+                        UpdateTargetId = "gridInterno",
+                        InsertionMode = InsertionMode.Replace
+                    })
+                </th>
+                <th>
+                    @Html.DisplayName("Lista")
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idcampo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tab_Subcategoria.descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ordem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lista)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Alterar", "Edit", new { id = item.idcampo }, new { @class = "btn btn-info btn-xs" })
+                        @Html.ActionLink("Apagar", "Delete", new { id = item.idcampo }, new { @class = "btn btn-danger btn-xs" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Busca",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }),
+                                  PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions
+                                  {
+                                      HttpMethod = "POST",
+                                      OnBegin = "$('#myModal').modal('show');",
+                                      OnComplete = "$('#myModal').modal('hide');",
+                                      OnFailure = "alert('Falha')",
+                                      UpdateTargetId = "gridInterno",
+                                      InsertionMode = InsertionMode.Replace
+                                  }))
+</div>

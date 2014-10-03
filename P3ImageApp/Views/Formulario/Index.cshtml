@@ -1,0 +1,46 @@
+﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Categoria>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+}
+<div class="jumbotron">
+    <div class="row">
+        <h3>
+            Categorias - Listagem</h3>
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Descrição Categoria
+                </th>
+                <th>
+                    Slug Categoria
+                </th>
+                <th>
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.descricao)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.slug)
+                    </td>
+                    <td style="text-align: center;">
+                        @Html.ActionLink("Visualizar", "Index_SubCat", new { id = item.idcategoria }, new { @class = "btn btn-info btn-xs" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="row" style="margin-left: 1px;">
+        Página @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        de @Model.PageCount&nbsp; @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page }))
+    </div>
+</div>
