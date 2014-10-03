@@ -289,6 +289,7 @@
     <Content Include="Views\Formulario\Index.cshtml" />
     <Content Include="Views\Formulario\Index_SubCat.cshtml" />
     <Content Include="Views\Formulario\Index_Campo.cshtml" />
+    <Content Include="Views\Formulario\Teste.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

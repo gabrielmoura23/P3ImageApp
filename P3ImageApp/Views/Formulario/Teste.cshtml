@@ -1,8 +1,8 @@
-﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Subcategoria>
+﻿@model PagedList.IPagedList<P3ImageApp.Models.Tab_Campo>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Index";
-    
+    ViewBag.Title = "Slug";
+
     if (User.Identity.IsAuthenticated)
     {
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
 <div class="jumbotron">
     <div class="row">
         <h3>
-            SubCategorias - Listagem</h3>
+            Teste de rota</h3>
     </div>
     <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -27,10 +27,16 @@
                     Descrição SubCategoria
                 </th>
                 <th>
-                    Slug SubCategoria
+                    Ordem Campo
                 </th>
                 <th>
-                    &nbsp;
+                    Descrição Campo
+                </th>
+                <th>
+                    Tipo Campo
+                </th>
+                <th>
+                    Lista Campo
                 </th>
             </tr>
         </thead>
@@ -38,14 +44,17 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Tab_Categoria.descricao)
+                    <td>@Html.DisplayFor(modelItem => item.Tab_Subcategoria.Tab_Categoria.descricao)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Tab_Subcategoria.descricao)
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.ordem)
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.descricao)
                     </td>
-                    <td>@Html.DisplayFor(modelItem => item.slug)
+                    <td>@Html.DisplayFor(modelItem => item.tipo)
                     </td>
-                    <td style="text-align: center;">
-                        @Html.ActionLink("Visualizar", "Index_Campo", new { id = item.idsubcategoria, idCategoria = item.idcategoria }, new { @class = "btn btn-info btn-xs" })
+                    <td>@Html.DisplayFor(modelItem => item.lista)
                     </td>
                 </tr>
             }
@@ -56,10 +65,4 @@
         de @Model.PageCount&nbsp; @Html.PagedListPager(Model, page => Url.Action("Index",
             new { page }))
     </div>
-    <p>
-        @using (Html.BeginForm())
-        {
-            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
-        }
-    </p>
 </div>

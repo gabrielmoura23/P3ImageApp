@@ -14,10 +14,15 @@ namespace P3ImageApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+            "TesteSlug",
+            "teste/{slugcategoria}/{slugsubcategoria}",
+            new { controller = "Formulario", action = "Teste", slugcategoria = "", slugsubcategoria = "" }); 
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            );            
         }
     }
 }
