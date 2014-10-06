@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using P3ImageApp.Models;
 using PagedList;
+using P3ImageApp.ViewModel;
 
 namespace P3ImageApp.Controllers
 {
@@ -17,6 +18,35 @@ namespace P3ImageApp.Controllers
 
         //
         // GET: /SubCategoria/
+
+        /// <summary>
+        /// Dinamico
+        /// </summary>
+        /// <param name="slugcategoria"></param>
+        /// <param name="slugsubcategoria"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        public ActionResult Dinamico(String slugcategoria, String slugsubcategoria)
+        {
+            SubCategoriaViewModel model = new SubCategoriaViewModel(slugcategoria, slugsubcategoria);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View("Dinamico", model);
+
+            /*
+            var tab = db.Tab_Campo.Where(s => s.Tab_Subcategoria.Tab_Categoria.slug == slugcategoria
+                                            && s.Tab_Subcategoria.slug == slugsubcategoria
+                                            ).AsQueryable();
+
+            if (tab != null)
+                ViewBag.IdCategoria = tab.Select(s => s.Tab_Subcategoria.Tab_Categoria.idcategoria).FirstOrDefault();
+
+            return View("Dinamico", tab.ToList());
+             * */
+        }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public PartialViewResult Busca(string sortOrder, string currentFilter, string searchString, int? page)

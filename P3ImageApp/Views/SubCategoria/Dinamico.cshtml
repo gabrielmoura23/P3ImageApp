@@ -1,0 +1,132 @@
+﻿@model P3ImageApp.ViewModel.SubCategoriaViewModel
+@using P3ImageApp.ViewModel
+@{
+    ViewBag.Title = "Index";
+
+    if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout_Externo.cshtml";
+    }
+}
+<div class="jumbotron">
+    <div class="row">
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.Tab_Categoria.idcategoria)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.Tab_Categoria.idcategoria)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.Tab_Categoria.descricao)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.Tab_Categoria.descricao)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.Tab_Categoria.slug)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.Tab_Categoria.slug)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.idsubcategoria)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.idsubcategoria)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.descricao)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.descricao)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.slug)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.slug)
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.subCategoria.Tab_Categoria.idcategoria)</strong>
+            <br />
+            @Html.DisplayFor(model => model.subCategoria.Tab_Categoria.idcategoria)
+        </p>
+        <p>
+            Campos:
+        </p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().idcampo)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().ordem)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().descricao)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().tipo)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().lista)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).OrderBy(s => s.descricao))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idcampo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ordem)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tipo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lista)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().idcampo)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().ordem)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().descricao)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().tipo)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.subCategoria.Tab_Campo.First().lista)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).OrderBy(s => s.descricao))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idcampo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ordem)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.descricao)
+                        </td>
+                        <td>
+                            @Html.Raw(@SubCategoriaViewModel.retornaTipo(item.descricao, item.tipo, item.lista))
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lista)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

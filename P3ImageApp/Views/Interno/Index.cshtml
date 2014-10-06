@@ -2,44 +2,34 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<p style="margin-left: 20px;">
-    <b>Bem vindo,
-        @{ if (HttpContext.Current.Session["nomeUsuarioLogado"] != null)
-           {
-            @HttpContext.Current.Session["nomeUsuarioLogado"].ToString();
-           }
-        }
-    </b>
-</p>
-<p>
-    Utilizar para teste:
-    <br />
-    <br />
-    <a href="~/teste/nautica-acessorios/som/">/teste/nautica-acessorios/som/</a>
-    <br />
-    <a href="~/teste/nautica-acessorios/">/teste/nautica-acessorios/</a>
-    <br />
-    etc...
-</p>
-<p style="text-align: justify;">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt tortor neque,
-    nec placerat purus dapibus quis. In ullamcorper pretium sapien, quis efficitur nisl
-    malesuada non. Phasellus nunc libero, fringilla non scelerisque sed, iaculis at
-    velit. Nam at bibendum lorem. Morbi consectetur mauris turpis, dignissim posuere
-    ex fringilla eget. Praesent non sagittis velit. Suspendisse suscipit molestie libero,
-    eget tempor metus eleifend ut. Sed ac velit mi. In hac habitasse platea dictumst.
-    Aliquam erat volutpat. Quisque tristique turpis et ultricies egestas.
-</p>
-<p style="text-align: justify;">
-    Duis auctor mollis sapien in sollicitudin. Quisque pretium fermentum ligula. Vivamus
-    at justo sit amet ligula bibendum semper. Nam vitae odio ut risus lobortis finibus
-    in et felis. Ut dapibus venenatis nibh eu viverra. Duis eleifend orci ac sollicitudin
-    feugiat. Aenean justo lorem, consectetur at suscipit sit amet, venenatis sed nisl.
-    Sed sed nisi sit amet orci accumsan dictum. Phasellus id eleifend felis, a volutpat
-    diam. Nam libero magna, eleifend et eleifend porta, gravida a elit. Nam pellentesque
-    sem felis, et mollis odio porta ac. Sed enim massa, varius nec vulputate sit amet,
-    convallis eget purus. Nam ipsum libero, rhoncus non ornare non, tempus quis dolor.
-    Fusce suscipit quam a est cursus, at efficitur neque accumsan. Maecenas dignissim
-    nibh dui, non porttitor nunc molestie quis. Pellentesque habitant morbi tristique
-    senectus et netus et malesuada fames ac turpis egestas.
-</p>
+<div class="jumbotron">
+    <p style="margin-left: 20px;">
+        <b>Bem vindo,
+            @{ if (HttpContext.Current.Session["nomeUsuarioLogado"] != null)
+               {
+                @HttpContext.Current.Session["nomeUsuarioLogado"].ToString();
+               }
+            }
+        </b>
+    </p>
+    <p>
+        Utilizar para teste:
+        <br />
+        <br />
+        <a href="~/teste/nautica-acessorios/som/">/teste/nautica-acessorios/som/</a>
+        <br /><br />
+        <a href="~/teste/nautica-acessorios/">/teste/nautica-acessorios/</a>
+        <br /><br />
+        <a href="~/teste1/nautica-acessorios/som/">/teste1/nautica-acessorios/som/</a>
+        <br />
+    </p>
+    <p style="text-align: justify;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt tortor neque,
+        nec placerat purus dapibus quis. In ullamcorper pretium sapien, quis efficitur nisl
+        malesuada non. Phasellus nunc libero, fringilla non scelerisque sed, iaculis at
+        velit. Nam at bibendum lorem. Morbi consectetur mauris turpis, dignissim posuere
+        ex fringilla eget. Praesent non sagittis velit. Suspendisse suscipit molestie libero,
+        eget tempor metus eleifend ut. Sed ac velit mi. In hac habitasse platea dictumst.
+        Aliquam erat volutpat. Quisque tristique turpis et ultricies egestas.
+    </p>
+</div>

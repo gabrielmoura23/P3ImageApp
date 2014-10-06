@@ -26,6 +26,18 @@ namespace P3ImageApp
             );
 
             routes.MapRoute(
+            name: "TesteSlug3",
+            url: "teste/{slugcategoria}/{slugsubcategoria}/{desccampo}",
+            defaults: new { controller = "Formulario", action = "Campo", slugcategoria = "", slugsubcategoria = "", desccampo = "" }
+            );
+
+            routes.MapRoute(
+            name: "TesteSlug21",
+            url: "teste1/{slugcategoria}/{slugsubcategoria}",
+            defaults: new { controller = "SubCategoria", action = "Dinamico", slugcategoria = "", slugsubcategoria = "" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

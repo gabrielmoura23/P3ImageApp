@@ -149,6 +149,7 @@
     <Compile Include="Repositorio\UsuarioRepositorio.cs" />
     <Compile Include="Seguranca\PermissaoProvider.cs" />
     <Compile Include="Seguranca\PermissoesFiltro.cs" />
+    <Compile Include="ViewModel\SubCategoriaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\css\bootstrap-min.css" />
@@ -290,7 +291,8 @@
     <Content Include="Views\Formulario\Index_SubCat.cshtml" />
     <Content Include="Views\Formulario\Index_Campo.cshtml" />
     <Content Include="Views\Shared\PaginaNaoEncontrada.cshtml" />
-    <Content Include="Views\Formulario\Dinamico.cshtml" />
+    <Content Include="Views\SubCategoria\Dinamico.cshtml" />
+    <Content Include="Views\Shared\TextBox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
