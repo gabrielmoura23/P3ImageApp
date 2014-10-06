@@ -11,7 +11,6 @@ namespace P3ImageApp.ViewModel
     public class SubCategoriaViewModel
     {
         public Tab_Subcategoria subCategoria { get; set; }
-        public string tipoAlterado { get; set; }
 
         public SubCategoriaViewModel(String slugcategoria, String slugsubcategoria)
         {
@@ -21,12 +20,6 @@ namespace P3ImageApp.ViewModel
                                                             .Where(s => s.Tab_Categoria.slug == slugcategoria
                                                             && s.slug == slugsubcategoria
                                                             ).FirstOrDefault();
-
-                //dicCampos = new Dictionary<int, string>();
-                //foreach(var model in db.Tab_Campo){
-                //    dicCampos.Add();
-               // 
-
             }
         }
 

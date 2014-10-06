@@ -52,7 +52,7 @@ namespace P3ImageApp.Controllers
                     break;
             }
 
-            int pageSize = 2;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             return PartialView("IndexGrid", tab.ToPagedList(pageNumber, pageSize));
         }
@@ -90,7 +90,7 @@ namespace P3ImageApp.Controllers
                     break;
             }
 
-            int pageSize = 2;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(tab.ToPagedList(pageNumber, pageSize));
         }

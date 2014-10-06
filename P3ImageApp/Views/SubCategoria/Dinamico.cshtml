@@ -68,7 +68,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).OrderBy(s => s.descricao))
+                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).ThenBy(s => s.descricao))
                 {
                     <tr>
                         <td>
@@ -106,7 +106,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).OrderBy(s => s.descricao))
+                @foreach (var item in Model.subCategoria.Tab_Campo.OrderBy(s => s.ordem).ThenBy(s => s.descricao))
                 {
                     <tr>
                         <td>

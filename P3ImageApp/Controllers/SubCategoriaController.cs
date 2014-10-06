@@ -29,23 +29,15 @@ namespace P3ImageApp.Controllers
         public ActionResult Dinamico(String slugcategoria, String slugsubcategoria)
         {
             SubCategoriaViewModel model = new SubCategoriaViewModel(slugcategoria, slugsubcategoria);
-            if (model == null)
+            if (model == null || model.subCategoria == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("PaginaNaoEncontrada", "Erro");
+                //return HttpNotFound();
             }
 
+            ViewBag.IdCategoria = model.subCategoria.Tab_Categoria.idcategoria;
+
             return View("Dinamico", model);
-
-            /*
-            var tab = db.Tab_Campo.Where(s => s.Tab_Subcategoria.Tab_Categoria.slug == slugcategoria
-                                            && s.Tab_Subcategoria.slug == slugsubcategoria
-                                            ).AsQueryable();
-
-            if (tab != null)
-                ViewBag.IdCategoria = tab.Select(s => s.Tab_Subcategoria.Tab_Categoria.idcategoria).FirstOrDefault();
-
-            return View("Dinamico", tab.ToList());
-             * */
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -82,7 +74,7 @@ namespace P3ImageApp.Controllers
                     break;
             }
 
-            int pageSize = 2;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             return PartialView("IndexGrid", tab.ToPagedList(pageNumber, pageSize));
         }
@@ -120,7 +112,7 @@ namespace P3ImageApp.Controllers
                     break;
             }
 
-            int pageSize = 2;
+            int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(tab.ToPagedList(pageNumber, pageSize));
         }
