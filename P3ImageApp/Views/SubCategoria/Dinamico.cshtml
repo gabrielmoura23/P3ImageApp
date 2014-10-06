@@ -45,12 +45,8 @@
             @Html.DisplayFor(model => model.subCategoria.slug)
         </p>
         <p>
-            <strong>@Html.DisplayNameFor(model => model.subCategoria.Tab_Categoria.idcategoria)</strong>
-            <br />
-            @Html.DisplayFor(model => model.subCategoria.Tab_Categoria.idcategoria)
-        </p>
-        <p>
-            Campos:
+            <h2>
+                Campos (padrão):</h2>
         </p>
         <table class="table table-hover">
             <thead>
@@ -90,6 +86,10 @@
                 }
             </tbody>
         </table>
+        <p>
+            <h2>
+                Campos (dinâmico)</h2>
+        </p>
         <table class="table table-hover">
             <thead>
                 <tr>
